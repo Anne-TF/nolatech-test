@@ -1,0 +1,67 @@
+@import '../../../../app/css/app.scss';
+
+.bars-animation {
+  display: flex;
+  justify-content: start;
+  width: 35%;
+  height: 10em;
+  gap: 8px;
+
+  span {
+    width: 6%;
+    height: 100%;
+    @apply bg-app-primary-400;
+    border-radius: 0 0 6px 6px;
+    animation: bounce 6s ease infinite alternate;
+    transform-origin: top;
+    content: '';
+
+    &:nth-of-type(2), &:nth-of-type(6) {
+      animation-delay: -2.2s; /* Start at the end of animation */
+    }
+
+    &:nth-of-type(3), &:nth-of-type(5), &:nth-of-type(7) {
+      animation-delay: -2.7s; /* Start mid-way of return of animation */
+    }
+
+    &:nth-of-type(4) {
+      height: 80%;
+    }
+
+    &:nth-of-type(5) {
+      height: 60%;
+    }
+
+    &:nth-of-type(6) {
+      height: 50%;
+    }
+    &:nth-of-type(7) {
+      height: 40%;
+    }
+    &:nth-of-type(8) {
+      height: 30%;
+    }
+  }
+}
+
+@keyframes bounce {
+  10% {
+    transform: scaleY(0.3); /* start by scaling to 30% */
+  }
+
+  30% {
+    transform: scaleY(1); /* scale up to 100% */
+  }
+
+  60% {
+    transform: scaleY(0.5); /* scale down to 50% */
+  }
+
+  80% {
+    transform: scaleY(0.75); /* scale up to 75% */
+  }
+
+  100% {
+    transform: scaleY(0.6); /* scale down to 60% */
+  }
+}

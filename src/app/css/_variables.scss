@@ -1,11 +1,39 @@
 // Custom colors
-$app-primary: #1B2727;
-$app-secondary: #C6EA4B;
-$app-tertiary: #D9D9D9;
-$app-quaternary: #3C5148;
-$app-accent: #E6EBCD;
+$app-primary: #F69051;
+$app-primary--tones: (
+  50: #FAC19E,
+  100: #F9B58B,
+  200: #F8A977,
+  300: #F79C64,
+  400: $app-primary,
+  500: #F5843D,
+  600: #F4772A,
+  700: #F36B16,
+  800: #E9610C,
+  900: #D5590B,
+  950: #C2510A
+);
 
-$app-danger: #FF3D00;
+
+$app-secondary: #242423;
+$app-tertiary: #E8EDDF;
+$app-quaternary: #CFDBD5;
+$app-accent: #333533;
+
+$app-danger: #F0B719;
+$app-danger--tones: (
+    50: #FDF7E5,
+    100: #FCEEBD,
+    200: #FBE594,
+    300: #FADE6B,
+    400: $app-danger,
+    500: #F8C31F,
+    600: #F7B800,
+    700: #E3A000,
+    800: #C18A00,
+    900: #A07A00,
+    950: #7A5A00
+);
 $app-info: #2e90fa;
 $app-warning: #FFCC00;
 $app-success: #4CAF50;

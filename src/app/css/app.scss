@@ -1,10 +1,6 @@
-// TAILWIND
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 // IMPORTS
 @import '_variables';
+@import '_fonts';
 
 // COLORS
 $colors: (
@@ -43,60 +39,38 @@ $colors: (
   }
 }
 
+$tones: (
+  'primary': $app-primary--tones,
+  'danger': $app-danger--tones,
+);
+
+// TONES RELATED CLASSED
+@each $name, $tone in $tones {
+  @each $tone-name, $tone-color in $tone {
+    .text-app-#{$name}-#{$tone-name} {
+      color: $tone-color !important;
+    }
+    .bg-app-#{$name}-#{$tone-name} {
+      background-color: $tone-color !important;
+    }
+    .border-app-#{$name}-#{$tone-name} {
+      border-left: 1px solid $tone-color !important;
+      border-right: 1px solid $tone-color !important;
+      border-top: 1px solid $tone-color !important;
+      border-bottom: 1px solid $tone-color !important;
+    }
+    .separator-app-#{$name}-#{$tone-name} {
+      background: $tone-color !important;
+    }
+  }
+}
+
 html,
 body {
-  font-size: 15px;
-  background-color: $app-primary;
-  color: $app-tertiary;
+  font-size: clamp(13px, 15px, 16px);
   letter-spacing: 0.078rem;
-  @media (max-width: 600px) {
-    font-size: 13px !important;
-  }
 }
 
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
 
 a {
   text-decoration: none;

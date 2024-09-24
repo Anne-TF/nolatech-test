@@ -1,0 +1,74 @@
+@font-face {
+  font-family: Montserrat-Light;
+  src: url(../assets/fonts/Montserrat-Light.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(../assets/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url(../assets/fonts/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url(../assets/fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: Inter-Bold;
+  src: url(../assets/fonts/Inter-Bold.ttf);
+}
+
+@font-face {
+  font-family: Inter-Regular;
+  src: url(../assets/fonts/Inter-Regular.ttf);
+}
+
+$light: 'Montserrat-Light', sans-serif;
+$regular: 'Montserrat-Regular', sans-serif;
+$semi-bold: 'Montserrat-SemiBold', sans-serif;
+$bold: 'Montserrat-Bold', sans-serif;
+$inter-regular: 'Inter-Regular', sans-serif;
+$inter-bold: 'Inter-Bold', sans-serif;
+
+$fonts: (
+  'light': $light,
+  'regular': $regular,
+  'semi-bold': $semi-bold,
+  'bold': $bold,
+  'inter-regular': $inter-regular,
+  'inter-bold': $inter-bold
+);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $bold;
+  font-weight: 700;
+  line-height: 1.813rem;
+}
+
+@for $size from 1 through 100 {
+  .fs-#{$size} {
+    font-size: #{$size}px !important;
+  }
+  .lh-#{$size} {
+    line-height: #{$size}px !important;
+  }
+  .ls-#{$size} {
+    letter-spacing: #{$size}px !important;
+  }
+}
+
+@each $name, $font in $fonts {
+  .text-#{$name} {
+    font-family: $font !important;
+  }
+}

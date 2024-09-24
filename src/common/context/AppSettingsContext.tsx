@@ -1,4 +1,4 @@
-import {createContext, ReactNode, useState} from 'react';
+import {createContext, ReactNode, useEffect, useState} from 'react';
 
 export type SettingsContextType = {
     isDarkMode: boolean;
@@ -11,12 +11,21 @@ export const AppSettingsContext = createContext<SettingsContextType>({
 });
 
 export const AppSettingsProvider = ({children}: {children: ReactNode}) => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(true);
 
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
-        document.body.classList.toggle("dark");
+        if (isDarkMode) {
+            document.documentElement.classList.remove('dark');
+        }
+        else {
+            document.documentElement.classList.add('dark');
+        }
     }
+
+    useEffect(() => {
+        setIsDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }, [])
 
     return (
         <AppSettingsContext.Provider value={{isDarkMode, toggleDarkMode}}>
