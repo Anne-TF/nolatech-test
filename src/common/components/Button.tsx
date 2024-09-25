@@ -1,5 +1,5 @@
 import React from 'react';
-import { RiLoader5Line } from '@remixicon/react';
+import {Spinner} from '@common/components/Spinner.tsx';
 
 interface Props {
     text?: string;
@@ -45,15 +45,7 @@ const Button = ({
         >
             {(!isLoading && iconPosition === 'left') && <GetIcon />}
             {isLoading ? (
-                <div className="relative w-4 py-3 mx-auto flex items-center justify-center">
-                    <span
-                        style={{
-                            border: `3px solid ${loaderColor}`,
-                        }}
-                        className="h-6 w-4 px-2.5 rounded-full absolute top-0"
-                    />
-                    <RiLoader5Line size={32} className="animate-spin absolute" color={spinnerColor} />
-                </div>
+               <Spinner loaderColor={loaderColor} spinnerColor={spinnerColor} />
             ) : (
                 <span className={`truncate ${textClassName}`}>{text}</span>
             )}

@@ -1,11 +1,13 @@
-import {Button, ThemeSwitch} from '@common/components';
-import {RiArticleLine, RiNotification2Line, RiPassPendingLine, RiSearch2Line, RiUser2Line} from '@remixicon/react';
-import {useContext} from 'react';
-import {AppSettingsContext} from '@context/AppSettingsContext.tsx';
+import {Spinner} from '@common/components';
+import {RiArticleLine, RiPassPendingLine, RiUser2Line} from '@remixicon/react';
+import {lazy, Suspense} from 'react';
+import {ChartCard} from '@modules/Dashboard/presentation/components/ChartCard.tsx';
+import {EmployeeItem} from '@modules/Dashboard/presentation/components/EmployeeItem.tsx';
 
 export function Dashboard() {
-    const { isDarkMode, toggleDarkMode } = useContext(AppSettingsContext);
+    const Chart = lazy(() => import('@common/components/ChartComponent.tsx'));
 
+    // MOCKS
     const upperCards = [
         {
             title: "Total Employees",
@@ -18,10 +20,10 @@ export function Dashboard() {
         },
         {
             title: "Evaluations Pending",
-            value: 5,
+            value: 25,
             icon: <RiPassPendingLine className="hidden md:block" size={24} />,
             caption: {
-                value: '95',
+                value: '85',
                 text: 'this year'
             }
         },
@@ -44,53 +46,47 @@ export function Dashboard() {
             }
         }
     ];
+    const recentResults = [
+        {
+            name: 'Jane Doe',
+            img: 'https://imgcdn.stablediffusionweb.com/2024/5/10/d9622fb4-da27-4341-971c-6f703d897417.jpg',
+            evaluation: '360°',
+            position: 'Frontend developer',
+            date: '02/02/2022',
+            result: 'Excellent'
+        },
+        {
+            name: 'John Doe',
+            img: 'https://imgcdn.stablediffusionweb.com/2024/5/10/d9622fb4-da27-4341-971c-6f703d897417.jpg',
+            evaluation: '180°',
+            position: 'Frontend developer',
+            date: '02/02/2022',
+            result: 'Excellent'
+        },
+        {
+            name: 'Jane Doe',
+            img: 'https://imgcdn.stablediffusionweb.com/2024/5/10/d9622fb4-da27-4341-971c-6f703d897417.jpg',
+            evaluation: '360°',
+            position: 'Frontend developer',
+            date: '02/02/2022',
+            result: 'Excellent'
+        },
+        {
+            name: 'John Doe',
+            img: 'https://imgcdn.stablediffusionweb.com/2024/5/10/d9622fb4-da27-4341-971c-6f703d897417.jpg',
+            evaluation: '180°',
+            position: 'Frontend developer',
+            date: '02/02/2022',
+            result: 'Excellent'
+        }
+    ]
 
     return (
         <>
-            <section className="text-app-secondary dark:!text-white px-4 md:px-8 py-4 md:pt-10 text-regular flex justify-between w-full h-auto">
-                <div className="w-3/5">
-                    <h1 className="mb-3 dark:!text-neutral-300 text-neutral-600" style={{fontSize: 'clamp(23px, 30px, 32px)'}}>
-                        Hello Jane
-                    </h1>
-                    Welcome to the 360° evaluation platform of Nolatech
-                </div>
-
-                <div className="gap-4 flex items-center">
-                    <Button
-                        icon={<RiNotification2Line size={24} />}
-                        customClassName="dark:!bg-app-accent bg-slate-100 rounded-lg p-2 text-bold"
-                        typeButton="button">
-                    </Button>
-
-                    <Button
-                        icon={<RiSearch2Line size={24} />}
-                        customClassName="dark:!bg-app-accent bg-slate-100 rounded-lg p-2 text-bold"
-                        typeButton="button">
-                    </Button>
-
-                    <ThemeSwitch className={`${isDarkMode ? '!bg-app-accent' : '!bg-slate-100'} dark:!text-white`} isDark={isDarkMode} toggleTheme={toggleDarkMode} />
-                </div>
-
-                <div className="flex gap-3 items-center">
-                    <p className="text-right text-semi-bold m-0">
-                        <span style={{ fontSize: 'clamp(16px, 17px, 18px)' }}>Jane Freya Doe</span>
-                        <br />
-                        <span className="text-regular text-neutral-500 dark:!text-neutral-400">Lead HR</span>
-                    </p>
-
-                    <img
-                        src="https://cdn2.stylecraze.com/wp-content/uploads/2020/09/Beautiful-Women-In-The-World.jpg.avif"
-                        alt="Jane_Doe"
-                        height="auto"
-                        width="auto"
-                        className="rounded-full h-[3.3em]"
-                    />
-                </div>
-            </section>
             <section className="grid grid-cols-2 lg:grid-cols-4 gap-3 px-4 md:px-8 h- md:pt-3">
                 {upperCards.map((card, index) => {
                     return (
-                        <div className="bg-slate-100 dark:bg-app-accent flex flex-col justify-between p-3 md:p-4 h-[8em] rounded-xl">
+                        <div key={index} className="bg-slate-100 dark:bg-app-accent flex flex-col justify-between p-3 md:p-4 h-[8em] rounded-xl">
                             <div className="flex items-center gap-2 w-full col-12 dark:!text-neutral-400 text-neutral-600">
                                 {card.icon}
                                 <h1 className="text-regular">{card.title}</h1>
@@ -109,27 +105,69 @@ export function Dashboard() {
                 })}
             </section>
 
-            <section className="grid grid-cols-12 px-4 md:px-8 md:pt-6 h-full gap-3 mb-8">
-                <div className="h-full col-span-8 rounded-xl grid grid-cols-6 gap-3">
-                    <div className="bg-slate-100 h-full dark:bg-app-accent col-span-4 rounded-xl">
-                        card
-                    </div>
+            <section className="grid grid-cols-12 px-4 pt-6 md:px-8 md:pt-6 gap-3 pb-6">
+                <div className="h-full col-span-12 xl:col-span-8 rounded-xl grid grid-cols-8 gap-3">
+                    <ChartCard
+                        title="People Evaluated Through The Years"
+                        chart={
+                            <div className="w-10/12">
+                                <Suspense fallback={<Spinner loaderColor="#F9B58B" spinnerColor="white"/>}>
+                                    <Chart
+                                        categories={[2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]}
+                                        series={[
+                                            {
+                                                name: "People evaluated",
+                                                data: [30, 40, 45, 50, 49, 60, 70, 85],
+                                            },
+                                            {
+                                                name: "Employees",
+                                                data: [30, 45, 50, 50, 48, 55, 60, 100],
+                                            },
+                                        ]}
+                                        colors={['#2e90fa', '#D5590B']}
+                                        id="area-chart"
+                                        type="area"
+                                    />
+                                </Suspense>
+                            </div>}
+                        customClassname="col-span-12 md:col-span-5 lg:col-span-5"/>
 
-                    <div className="bg-slate-100 h-full dark:bg-app-accent col-span-2 rounded-xl">
-                        card
-                    </div>
+                <div className={`bg-slate-100 h-auto dark:bg-app-accent col-span-12 md:col-span-3 lg:col-span-3 rounded-xl flex flex-col items-center max-h-[27em]`}>
+                    <h1 className="text-xl w-full px-3 md:px-6 py-5 text-app-secondary text-semi-bold dark:!text-neutral-300">
+                        Most Recent Results
+                    </h1>
 
-                    <div className="bg-slate-100 h-full dark:bg-app-accent col-span-3 rounded-xl">
-                        card
+                    <div className="h-5/6 mb-5 w-full px-4 md:px-6 overflow-y-auto flex flex-col gap-5">
+                        {recentResults.map((result, index) => {
+                            return <EmployeeItem key={index} employee={result} />
+                        })}
                     </div>
+                </div>
 
-                    <div className="bg-slate-100 h-full dark:bg-app-accent col-span-3 rounded-xl">
+                <ChartCard
+                    title="Employees Evaluation Status"
+                    chart={
+                        <div className="w-8/12 md:w-10/12 xl:w-8/12 pb-6">
+                            <Suspense fallback={<Spinner loaderColor="#F9B58B" spinnerColor="white"/>}>
+                                 <Chart
+                                        categories={[2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]}
+                                        series={[85, 15, 10]}
+                                        labels={['Evaluated', 'Programmed', 'Pending']}
+                                        colors={['#4CAF50', '#D5590B', '#F8C31F']}
+                                        id="area-chart"
+                                        type="pie"
+                                    />
+                                </Suspense>
+                            </div>}
+                        customClassname="col-span-12 md:col-span-5 lg:col-span-4"/>
+
+                    <div className="bg-slate-100 h-full dark:bg-app-accent col-span-12 md:col-span-3 lg:col-span-4 rounded-xl">
                         card
                     </div>
                 </div>
 
 
-                <div className="bg-slate-100 h-full dark:bg-app-accent col-span-4 rounded-xl">
+                <div className="bg-slate-100 h-full dark:bg-app-accent col-span-12 lg:col-span-4 rounded-xl">
                     card
                 </div>
             </section>

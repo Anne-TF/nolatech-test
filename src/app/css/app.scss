@@ -97,16 +97,29 @@ a:visited {
 }
 
 .sidebar-navigation {
-  display: flex;
-  flex-direction: column;
-  width: 0;
+  display: none;
+  @media (min-width: 900px) {
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .sidebar-navigation--animation {
-  -webkit-transition: width 1s ease-in-out;
-  -moz-transition: width 1s ease-in-out;
-  -o-transition: width 1s ease-in-out;
-  transition: width 1s ease-in-out;
+ @media (min-width: 500px) {
+   -webkit-transition: width 1s ease-in-out;
+   -moz-transition: width 1s ease-in-out;
+   -o-transition: width 1s ease-in-out;
+   transition: width 1s ease-in-out;
 
-  width: 16%;
+   width: 16%;
+
+   @media (max-width: 1200px) {
+     width: 23%;
+   }
+ }
+}
+
+.apexcharts-legend-text {
+  color: #858991 !important;
 }
