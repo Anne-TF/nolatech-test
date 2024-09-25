@@ -18,6 +18,7 @@ export default {
       },
       animation: {
         "fade-in-down": "fade-in-down 0.2s ease-out",
+        "slide-in-left": "slide-in-left 0.5s ease-out",
       },
       keyframes: {
         "fade-in-down": {
@@ -27,6 +28,15 @@ export default {
           },
           "100%": {
             opacity: 1,
+            transform: "translate3d(0, 0, 0)",
+          },
+        },
+        "slide-in-left": {
+          "0%": {
+            visibility: "invisible",
+            transform: "translate3d(-100%, 0, 0)",
+          },
+          "100%": {
             transform: "translate3d(0, 0, 0)",
           },
         },

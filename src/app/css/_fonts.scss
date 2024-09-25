@@ -53,6 +53,7 @@ h6 {
   font-family: $bold;
   font-weight: 700;
   line-height: 1.813rem;
+  letter-spacing: 1px;
 }
 
 @for $size from 1 through 100 {
@@ -70,5 +71,6 @@ h6 {
 @each $name, $font in $fonts {
   .text-#{$name} {
     font-family: $font !important;
+    letter-spacing: -0.5px;
   }
 }

@@ -11,7 +11,7 @@ const ThemeSwitch = ({ isDark, toggleTheme, className }: Props) => {
         <button
             type="button"
             onClick={toggleTheme}
-            className={`${className} dark:!text-app-primary text-app-secondary dark:bg-app-secondary bg-slate-300 rounded-lg p-2`}
+            className={`${className} dark:text-app-primary text-app-secondary dark:bg-app-secondary bg-slate-300 rounded-lg p-2`}
         >
             {!isDark && <RiMoonLine size={24} />}
             {isDark && <RiSunLine size={24} />}

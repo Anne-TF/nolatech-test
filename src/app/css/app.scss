@@ -92,6 +92,21 @@ a:visited {
   background: transparent;
 
   @media (min-width: 900px) {
-    background: $app-secondary;
+    background: $app-primary;
   }
+}
+
+.sidebar-navigation {
+  display: flex;
+  flex-direction: column;
+  width: 0;
+}
+
+.sidebar-navigation--animation {
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+
+  width: 16%;
 }
