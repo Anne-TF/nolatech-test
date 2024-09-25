@@ -4,6 +4,7 @@ import ThemeSwitch from './ThemeSwitch';
 import ListItem from './ListItem';
 import ChartComponent from './ChartComponent';
 import { Spinner } from './Spinner';
+import { NotificationsButton } from './NotificationsButton';
 
 export {
     Input,
@@ -11,5 +12,6 @@ export {
     ThemeSwitch,
     ListItem,
     ChartComponent,
-    Spinner
+    Spinner,
+    NotificationsButton
 }

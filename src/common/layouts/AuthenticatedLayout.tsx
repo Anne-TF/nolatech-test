@@ -7,11 +7,10 @@ import {
     RiArticleLine,
     RiDashboardLine,
     RiMenu2Line,
-    RiNotification2Line,
     RiSearch2Line,
     RiUser2Line,
 } from '@remixicon/react';
-import {Button, ListItem, ThemeSwitch} from '@common/components';
+import {Button, ListItem, NotificationsButton, ThemeSwitch} from '@common/components';
 
 export function AuthenticatedLayout() {
     const [isMounted, setIsMounted] = useState(false);
@@ -46,7 +45,7 @@ export function AuthenticatedLayout() {
 
     return (
         <main className="flex min-h-[100vh] overflow-x-hidden max-w-full">
-            <aside className={`py-4 sidebar-navigation bg-slate-100 dark:!bg-app-accent px-3 ${isMounted && 'sidebar-navigation--animation'} ${showSidebar && '!fixed md:!relative w-4/5 md:w-auto !block md:!flex h-full md:h-auto z-40 animate-slide-in-left'}`}>
+            <aside className={`py-4 sidebar-navigation bg-slate-100 dark:!bg-app-accent px-3 ${isMounted && 'sidebar-navigation--animation'} ${showSidebar && '!fixed xl:!relative w-4/5 md:w-3/5 lg:w-auto !block xl:!flex h-full xl:h-auto z-40 animate-slide-in-left'}`}>
                 <img
                     src={isDarkMode ? NolatechLogoWhite : NolatechLogoGray}
                     alt="nolatech_logo_white"
@@ -84,7 +83,7 @@ export function AuthenticatedLayout() {
                         Welcome to the 360° evaluation platform of Nolatech
                     </div>
 
-                    <div className="gap-2 md:gap-4 flex items-start xl:items-center flex-row flex-wrap w-2/4 md:w-auto">
+                    <div className="gap-2 md:gap-4 flex items-start xl:items-center flex-row flex-wrap w-3/4 sm:w-2/4 md:w-auto">
                         <h1 className="w-full mb-1 dark:!text-neutral-300 text-neutral-600 text-xl block lg:hidden">
                             Hello Jane
                         </h1>
@@ -95,17 +94,14 @@ export function AuthenticatedLayout() {
                             typeButton="button">
                         </Button>
 
-                        <Button
-                            icon={<RiNotification2Line size={24}/>}
-                            customClassName="dark:!bg-app-accent bg-slate-100 rounded-lg p-2 text-bold"
-                            typeButton="button">
-                        </Button>
 
                         <Button
                             icon={<RiSearch2Line size={24}/>}
                             customClassName="dark:!bg-app-accent bg-slate-100 rounded-lg p-2 text-bold"
                             typeButton="button">
                         </Button>
+
+                        <NotificationsButton />
 
                         <ThemeSwitch className={`${isDarkMode ? '!bg-app-accent' : '!bg-slate-100'} dark:!text-white`}
                                      isDark={isDarkMode} toggleTheme={toggleDarkMode}/>
@@ -127,7 +123,7 @@ export function AuthenticatedLayout() {
                         />
                     </div>
                 </div>
-                {showSidebar && <div className="fixed w-full h-full bg-app-secondary z-20 opacity-60 backdrop-blur-md overflow-hidden md:hidden"
+                {showSidebar && <div className="fixed w-full h-full bg-app-secondary z-20 opacity-60 backdrop-blur-md overflow-hidden lg:hidden"
                                      onClick={() => setShowSidebar(!showSidebar)}/>}
                 <Outlet/>
             </section>

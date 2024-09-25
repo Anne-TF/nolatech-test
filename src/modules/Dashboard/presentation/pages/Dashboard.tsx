@@ -110,7 +110,7 @@ export function Dashboard() {
                     <ChartCard
                         title="People Evaluated Through The Years"
                         chart={
-                            <div className="w-10/12">
+                            <div className="w-full md:w-10/12">
                                 <Suspense fallback={<Spinner loaderColor="#F9B58B" spinnerColor="white"/>}>
                                     <Chart
                                         categories={[2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]}
@@ -147,7 +147,7 @@ export function Dashboard() {
                 <ChartCard
                     title="Employees Evaluation Status"
                     chart={
-                        <div className="w-8/12 md:w-10/12 xl:w-8/12 pb-6">
+                        <div className="w-full sm:w-8/12 md:w-10/12 xl:w-8/12 pb-6">
                             <Suspense fallback={<Spinner loaderColor="#F9B58B" spinnerColor="white"/>}>
                                  <Chart
                                         categories={[2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]}
