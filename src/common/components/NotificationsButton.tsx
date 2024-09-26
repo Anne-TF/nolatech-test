@@ -74,7 +74,7 @@ export const NotificationsButton = () => {
                 <Button
                     icon={<RiNotification2Line size={24}/>}
                     customOnClick={() => setShowMenu(!showMenu)}
-                    customClassName={`dark:!bg-app-accent bg-slate-100 rounded-lg p-2 text-bold ${notifications.length > 0 && notifications.some((notification) => !notification.read) && 'animate-jiggle'}`}
+                    customClassName={`dark:!bg-app-accent hover:dark:!bg-neutral-800 bg-slate-100 hover:bg-slate-200 rounded-lg p-2 text-bold ${notifications.length > 0 && notifications.some((notification) => !notification.read) && 'animate-jiggle'}`}
                     typeButton="button">
                 </Button>
 

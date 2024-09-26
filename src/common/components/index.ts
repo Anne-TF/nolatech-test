@@ -5,6 +5,8 @@ import ListItem from './ListItem';
 import ChartComponent from './ChartComponent';
 import { Spinner } from './Spinner';
 import { NotificationsButton } from './NotificationsButton';
+import { Table } from './Table';
+import { Pagination } from './Pagination';
 
 export {
     Input,
@@ -13,5 +15,7 @@ export {
     ListItem,
     ChartComponent,
     Spinner,
-    NotificationsButton
+    NotificationsButton,
+    Table,
+    Pagination
 }

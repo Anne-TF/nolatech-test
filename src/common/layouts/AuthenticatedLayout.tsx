@@ -32,7 +32,7 @@ export function AuthenticatedLayout() {
         {
             text: 'Employees',
             icon: <RiUser2Line size={24} />,
-            to: '/evaluation-forms'
+            to: '/employees'
         }
     ];
 
@@ -60,7 +60,7 @@ export function AuthenticatedLayout() {
                             text={link.text}
                             icon={link.icon}
                             to={link.to}
-                            customClassname="w-full text-neutral-500 hover:bg-neutral-700 rounded-lg dark:!text-neutral-300 py-4 px-4 text-regular font-bold mb-3"
+                            customClassname="w-full text-neutral-500 hover:bg-slate-200 hover:dark:!bg-neutral-700 rounded-lg dark:!text-neutral-300 py-4 px-4 text-regular font-bold mb-3"
                             iconPosition="left"
                             activeClassname={`${isDarkMode && 'bg-app-primary-900 !text-app-secondary'} ${!isDarkMode && 'bg-app-primary-100 !text-app-secondary'} text-semi-bold`}
                             isActive={location.pathname === link.to}
@@ -90,20 +90,20 @@ export function AuthenticatedLayout() {
                         <Button
                             icon={<RiMenu2Line size={24}/>}
                             customOnClick={() => setShowSidebar(!showSidebar)}
-                            customClassName="dark:!bg-app-accent bg-slate-100 rounded-lg p-2 text-bold block lg:hidden"
+                            customClassName="dark:!bg-app-accent hover:dark:!bg-neutral-800 bg-slate-100 hover:bg-slate-200 rounded-lg p-2 text-bold block lg:hidden"
                             typeButton="button">
                         </Button>
 
 
                         <Button
                             icon={<RiSearch2Line size={24}/>}
-                            customClassName="dark:!bg-app-accent bg-slate-100 rounded-lg p-2 text-bold"
+                            customClassName="dark:!bg-app-accent hover:dark:!bg-neutral-800 bg-slate-100 hover:bg-slate-200 rounded-lg p-2 text-bold"
                             typeButton="button">
                         </Button>
 
                         <NotificationsButton />
 
-                        <ThemeSwitch className={`${isDarkMode ? '!bg-app-accent' : '!bg-slate-100'} dark:!text-white`}
+                        <ThemeSwitch className={`${isDarkMode ? '!bg-app-accent hover:!bg-neutral-800' : '!bg-slate-100 hover:!bg-slate-200'} dark:!text-white`}
                                      isDark={isDarkMode} toggleTheme={toggleDarkMode}/>
                     </div>
 

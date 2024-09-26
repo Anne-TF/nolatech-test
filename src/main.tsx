@@ -14,13 +14,15 @@ import 'remixicon/fonts/remixicon.css';
 import { AppSettingsProvider } from '@context/AppSettingsContext.tsx';
 
 // ROUTES
-import {DashboardRoutes} from '@modules/Dashboard/presentation/routes';
+import { DashboardRoutes } from '@modules/Dashboard/presentation/routes';
 import { AuthRoutes} from '@modules/Auth/presentation/routes';
+import { EmployeesRoutes} from '@modules/Employees/presentation/routes';
 
 
 const router = createBrowserRouter([
     AuthRoutes,
-    DashboardRoutes
+    DashboardRoutes,
+    EmployeesRoutes,
 ]);
 
 createRoot(document.getElementById('root')!).render(

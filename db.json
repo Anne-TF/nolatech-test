@@ -1,0 +1,385 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "jdoe@nolatech.com",
+      "position": "Software Engineer",
+      "department": "Engineering",
+      "salary": 100000,
+      "age": 30,
+      "img": "https://media.istockphoto.com/id/1200677760/photo/portrait-of-handsome-smiling-young-man-with-crossed-arms.jpg?s=612x612&w=0&k=20&c=g_ZmKDpK9VEEzWw4vJ6O577ENGLTOcrvYeiLxi8mVuo=",
+      "dateHired": "2020-01-01",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 1,
+          "date": "2020-01-01",
+          "type": "360 degree",
+          "status": "Completed",
+          "result": "Good"
+        },
+        {
+          "id": 2,
+          "date": "2020-01-01",
+          "type": "360 degree",
+          "status": "Completed",
+          "result": "Excellent"
+        },
+        {
+          "id": 3,
+          "date": "2020-01-01",
+          "type": "360 degree",
+          "status": "Completed",
+          "result": "Excellent"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "firstName": "Michael",
+      "lastName": "Lee",
+      "email": "mlee@nolatech.com",
+      "position": "Data Analyst",
+      "department": "Data Science",
+      "salary": 85000,
+      "img": "https://static.vecteezy.com/system/resources/thumbnails/041/151/800/small_2x/ai-generated-portrait-of-a-young-handsome-italian-man-in-a-black-suit-standing-in-an-arched-corridor-and-looking-at-camera-photo.jpg",
+      "age": 28,
+      "dateHired": "2023-08-01",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 4,
+          "date": "2023-08-31",
+          "type": "360 degree",
+          "status": "Completed",
+          "result": "Meets Expectations"
+        }
+      ]
+    },
+
+    {
+      "id": 3,
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jsmith@nolatech.com",
+      "position": "Product Manager",
+      "img": "https://imgcdn.stablediffusionweb.com/2024/5/10/d9622fb4-da27-4341-971c-6f703d897417.jpg",
+      "department": "Product",
+      "salary": 120000,
+      "age": 35,
+      "dateHired": "2021-02-15",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": []
+    },
+    {
+      "id": 4,
+      "firstName": "Michael",
+      "lastName": "Lee",
+      "email": "mlee@nolatech.com",
+      "position": "Data Analyst",
+      "department": "Data Science",
+      "salary": 85000,
+      "img": "https://t3.ftcdn.net/jpg/04/97/66/28/360_F_497662812_7rGW6PMBJR9AbrKcGgN5S1luXYTjH92i.jpg",
+      "age": 28,
+      "dateHired": "2023-08-01",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 4,
+          "date": "2023-08-31",
+          "type": "Performance Review",
+          "status": "Completed",
+          "result": "Meets Expectations"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "firstName": "Sarah",
+      "lastName": "Garcia",
+      "email": "sg@nolatech.com",
+      "img": "https://www.shutterstock.com/image-photo/beauty-portrait-african-american-girl-600nw-2413393785.jpg",
+      "position": "UX Designer",
+      "department": "Design",
+      "salary": 90000,
+      "age": 32,
+      "dateHired": "2022-06-12",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 5,
+          "date": "2022-12-31",
+          "type": "180 degree",
+          "status": "Completed",
+          "result": "Exceeds Expectations"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "firstName": "David",
+      "lastName": "Wang",
+      "email": "dwang@nolatech.com",
+      "position": "Software Engineer",
+      "department": "Engineering",
+      "salary": 110000,
+      "img": "https://t3.ftcdn.net/jpg/04/97/66/28/360_F_497662812_7rGW6PMBJR9AbrKcGgN5S1luXYTjH92i.jpg",
+      "age": 40,
+      "dateHired": "2018-05-23",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": []
+    },
+    {
+      "id": 7,
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jsmith@nolatech.com",
+      "position": "Product Manager",
+      "img": "https://www.stylecraze.com/wp-content/uploads/2013/06/12-Most-Beautiful-American-Women.jpg",
+      "department": "Product",
+      "salary": 120000,
+      "age": 35,
+      "dateHired": "2021-02-15",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": []
+    },
+    {
+      "id": 8,
+      "firstName": "Michael",
+      "lastName": "Lee",
+      "email": "mlee@nolatech.com",
+      "position": "Data Analyst",
+      "img": "https://t3.ftcdn.net/jpg/04/97/66/28/360_F_497662812_7rGW6PMBJR9AbrKcGgN5S1luXYTjH92i.jpg",
+      "department": "Data Science",
+      "salary": 85000,
+      "age": 28,
+      "dateHired": "2023-08-01",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 4,
+          "date": "2023-08-31",
+          "type": "Performance Review",
+          "status": "Completed",
+          "result": "Meets Expectations"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "firstName": "Sarah",
+      "lastName": "Garcia",
+      "email": "sg@nolatech.com",
+      "position": "UX Designer",
+      "department": "Design",
+      "salary": 90000,
+      "age": 32,
+      "img": "https://www.shutterstock.com/image-photo/beauty-portrait-african-american-girl-600nw-2413393785.jpg",
+      "dateHired": "2022-06-12",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 5,
+          "date": "2022-12-31",
+          "type": "Peer Review",
+          "status": "Completed",
+          "result": "Exceeds Expectations"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "firstName": "David",
+      "lastName": "Wang",
+      "email": "dwang@nolatech.com",
+      "position": "Software Engineer",
+      "department": "Engineering",
+      "img":"https://t3.ftcdn.net/jpg/06/99/46/60/240_F_699466075_DaPTBNlNQTOwwjkOiFEoOvzDV0ByXR9E.jpg",
+      "salary": 110000,
+      "age": 40,
+      "dateHired": "2018-05-23",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": []
+    },
+    {
+      "id": 11,
+      "firstName": "Amanda",
+      "lastName": "Johnson",
+      "email": "ajohnson@nolatech.com",
+      "position": "Marketing Manager",
+      "department": "Marketing",
+      "img" : "https://media.istockphoto.com/id/1326417865/photo/portrait-of-happy-young-woman.jpg?s=612x612&w=0&k=20&c=ssdh0SPabJmKMKxYwCwNoijf8airJlav03b6rY8dNLA=",
+      "salary": 95000,
+      "age": 37,
+      "dateHired": "2020-07-10",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 6,
+          "date": "2023-09-20",
+          "type": "Self Evaluation",
+          "status": "Completed",
+          "result": "Needs Improvement"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "firstName": "Christopher",
+      "lastName": "Kim",
+      "email": "ckim@nolatech.com",
+      "position": "Sales Representative",
+      "department": "Sales",
+      "salary": 75000,
+      "img": "https://t3.ftcdn.net/jpg/04/97/66/28/360_F_497662812_7rGW6PMBJR9AbrKcGgN5S1luXYTjH92i.jpg",
+      "age": 25,
+      "dateHired": "2023-04-17",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": []
+    },
+    {
+      "id": 13,
+      "firstName": "Emily",
+      "lastName": "Chen",
+      "email": "echen@nolatech.com",
+      "position": "Product Manager",
+      "img" : "https://media.istockphoto.com/id/1326417865/photo/portrait-of-happy-young-woman.jpg?s=612x612&w=0&k=20&c=ssdh0SPabJmKMKxYwCwNoijf8airJlav03b6rY8dNLA=",
+      "department": "Product",
+      "salary": 120000,
+      "age": 35,
+      "dateHired": "2021-02-15",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": []
+    },
+    {
+      "id": 14,
+      "firstName": "Olivia",
+      "lastName": "Garcia",
+      "email": "olivia.garcia@nolatech.com",
+      "position": "Customer Support",
+      "department": "Customer Success",
+      "salary": 60000,
+      "age": 27,
+      "img": "https://www.stylecraze.com/wp-content/uploads/2013/06/12-Most-Beautiful-American-Women.jpg",
+      "dateHired": "2022-11-02",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 7,
+          "date": "2023-05-15",
+          "type": "Customer Satisfaction Survey",
+          "status": "Completed",
+          "result": "Excellent"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "firstName": "Ethan",
+      "lastName": "Miller",
+      "email": "emiller@nolatech.com",
+      "position": "HR Manager",
+      "department": "Human Resources",
+      "salary": 130000,
+      "img": "https://static.vecteezy.com/system/resources/thumbnails/041/151/800/small_2x/ai-generated-portrait-of-a-young-handsome-italian-man-in-a-black-suit-standing-in-an-arched-corridor-and-looking-at-camera-photo.jpg",
+      "age": 42,
+      "dateHired": "2019-03-08",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 8,
+          "date": "2024-02-28",
+          "type": "Performance Review",
+          "status": "Completed",
+          "result": "Exceeds Expectations"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "firstName": "Olivia",
+      "lastName": "Garcia",
+      "email": "olivia.garcia@nolatech.com",
+      "position": "Customer Support",
+      "department": "Customer Success",
+      "salary": 60000,
+      "age": 27,
+      "img": "https://www.stylecraze.com/wp-content/uploads/2013/06/12-Most-Beautiful-American-Women.jpg",
+      "dateHired": "2022-11-02",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 7,
+          "date": "2023-05-15",
+          "type": "Customer Satisfaction Survey",
+          "status": "Completed",
+          "result": "Excellent"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "firstName": "Ethan",
+      "lastName": "Miller",
+      "email": "emiller@nolatech.com",
+      "position": "HR Manager",
+      "department": "Human Resources",
+      "salary": 130000,
+      "img": "https://media.istockphoto.com/id/1200677760/photo/portrait-of-handsome-smiling-young-man-with-crossed-arms.jpg?s=612x612&w=0&k=20&c=g_ZmKDpK9VEEzWw4vJ6O577ENGLTOcrvYeiLxi8mVuo=",
+      "age": 42,
+      "dateHired": "2019-03-08",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 8,
+          "date": "2024-02-28",
+          "type": "Performance Review",
+          "status": "Completed",
+          "result": "Exceeds Expectations"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "firstName": "Emily",
+      "lastName": "Davis",
+      "email": "edavis@nolatech.com",
+      "position": "Accountant",
+      "department": "Finance",
+      "img": "https://www.stylecraze.com/wp-content/uploads/2013/06/12-Most-Beautiful-American-Women.jpg",
+      "salary": 70000,
+      "age": 33,
+      "dateHired": "2021-09-15",
+      "typeJob": "Full Time",
+      "status": "Active",
+      "evaluations": [
+        {
+          "id": 9,
+          "date": "2023-11-10",
+          "type": "Audit",
+          "status": "Completed",
+          "result": "Satisfactory"
+        }
+      ]
+    }
+  ]
+}
