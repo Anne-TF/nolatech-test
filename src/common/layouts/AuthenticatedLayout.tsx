@@ -1,7 +1,7 @@
-import {Outlet, useLocation} from 'react-router-dom';
+import {Navigate, Outlet, useLocation} from 'react-router-dom';
 import NolatechLogoWhite from "@assets/nolatech-logo-white.png";
 import NolatechLogoGray from "@assets/nolatech-logo-gray.png";
-import {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {AppSettingsContext} from '@context/AppSettingsContext.tsx';
 import {
     RiArticleLine,
@@ -15,7 +15,7 @@ import {AuthContext} from '@modules/Auth/infrastructure/context/AuthContext.tsx'
 
 export function AuthenticatedLayout() {
     const { isDarkMode, toggleDarkMode } = useContext(AppSettingsContext);
-    const { user, setUser } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
     const location = useLocation();
 
     const [isMounted, setIsMounted] = useState(false);
@@ -47,6 +47,12 @@ export function AuthenticatedLayout() {
         }, 200)
         return () => setIsMounted(false);
     }, [])
+
+
+    if (!user) {
+        // user is not authenticated
+        return <Navigate to="/" />;
+    }
 
     return (
         <main className="flex min-h-[100vh] md:h-[100vh] max-w-full">
@@ -80,7 +86,9 @@ export function AuthenticatedLayout() {
                         text="Logout"
                         icon={<RiLogoutBoxLine size={24} />}
                         to="/"
-                        customOnClick={() => setUser(null)}
+                        customOnClick={() => {
+                            logout();
+                        }}
                         customClassname="w-11/12 absolute bottom-4 truncate text-neutral-500 hover:bg-slate-200 hover:dark:bg-neutral-700 rounded-lg dark:!text-neutral-300 py-4 px-4 text-regular font-bold mb-3"
                         iconPosition="left"
                         activeClassname={`${isDarkMode && 'bg-app-primary-900 hover:!bg-orange-600 !text-app-secondary'} ${!isDarkMode && 'bg-app-primary-100 !text-app-secondary'} text-semi-bold`}

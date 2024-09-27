@@ -1,21 +1,42 @@
-import {createContext, ReactNode, useState} from 'react';
+import {createContext, ReactNode, useMemo} from 'react';
 import {IUser} from '@modules/Auth/infrastructure/interfaces/user.interface.ts';
+import {useLocalStorage} from '@common/hooks';
 
 export type AuthContextType = {
     user: IUser | null;
-    setUser: (user: IUser | null) => void;
+    login: (user: IUser) => void;
+    logout: () => void;
 };
 
 export const AuthContext = createContext<AuthContextType>({
     user: null,
-    setUser: () => {}
+    login: () => {},
+    logout: () => {},
 });
 
 export const AuthContextProvider = ({children}: {children: ReactNode}) => {
-    const [user, setUser] = useState<IUser | null>(null);
+    const [user, setUser] = useLocalStorage('user', null);
+
+    const login = (user: IUser) => {
+        setUser(user);
+    };
+
+    const logout = () => {
+        setUser(null);
+    };
+
+    const value = useMemo(
+        () => ({
+            user,
+            login,
+            logout,
+        }),
+        [user]
+    );
+
 
     return (
-        <AuthContext.Provider value={{ user, setUser }}>
+        <AuthContext.Provider value={value}>
             {children}
         </AuthContext.Provider>
     );
