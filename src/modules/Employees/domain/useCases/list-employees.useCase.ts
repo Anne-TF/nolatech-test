@@ -2,8 +2,8 @@ import {EmployeesGateway} from '@modules/Employees/infrastructure/gateways/emplo
 
 export class ListEmployeesUseCase
 {
-    static async handler(page: number, limit: number)
+    static async handler(page: number, limit: number, search?: string, fieldsToSearch?: string[])
     {
-        return await EmployeesGateway.list(page, limit);
+        return await EmployeesGateway.list(page, limit, search, fieldsToSearch);
     }
 }

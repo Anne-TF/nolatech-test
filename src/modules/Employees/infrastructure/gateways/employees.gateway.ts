@@ -10,11 +10,16 @@ export class EmployeesGateway {
         }
     };
 
-    static async list(page: number, limit: number): Promise<IAPIResponse<IEmployee[]>> {
+    static async list(page: number, limit: number, search?: string, fieldsToSearch?: string[]): Promise<IAPIResponse<IEmployee[]>> {
         const url = `${APIBasePath}${this.routes.list.url}`;
        const query = new URLSearchParams();
         query.append('_page', page.toString());
         query.append('_per_page', limit.toString());
+        if (search && fieldsToSearch) {
+            fieldsToSearch.forEach(field => {
+              query.append(field, search);
+            })
+        }
 
         return fetch(url.concat('?', query.toString()), {
             method: this.routes.list.method,

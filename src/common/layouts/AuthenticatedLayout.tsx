@@ -60,9 +60,9 @@ export function AuthenticatedLayout() {
                             text={link.text}
                             icon={link.icon}
                             to={link.to}
-                            customClassname="w-full text-neutral-500 hover:bg-slate-200 hover:dark:!bg-neutral-700 rounded-lg dark:!text-neutral-300 py-4 px-4 text-regular font-bold mb-3"
+                            customClassname="w-full truncate text-neutral-500 hover:bg-slate-200 hover:dark:bg-neutral-700 rounded-lg dark:!text-neutral-300 py-4 px-4 text-regular font-bold mb-3"
                             iconPosition="left"
-                            activeClassname={`${isDarkMode && 'bg-app-primary-900 !text-app-secondary'} ${!isDarkMode && 'bg-app-primary-100 !text-app-secondary'} text-semi-bold`}
+                            activeClassname={`${isDarkMode && 'bg-app-primary-900 hover:!bg-orange-600 !text-app-secondary'} ${!isDarkMode && 'bg-app-primary-100 !text-app-secondary'} text-semi-bold`}
                             isActive={location.pathname === link.to}
                             clickable={true}
                             key={index}
@@ -123,8 +123,7 @@ export function AuthenticatedLayout() {
                         />
                     </div>
                 </div>
-                {showSidebar && <div className="fixed w-full h-full bg-app-secondary z-20 opacity-60 backdrop-blur-md overflow-hidden lg:hidden"
-                                     onClick={() => setShowSidebar(!showSidebar)}/>}
+                {showSidebar && <div className="fixed w-full h-full bg-app-secondary z-20 opacity-60 backdrop-blur-md overflow-hidden lg:hidden" onClick={() => setShowSidebar(!showSidebar)}/>}
                 <Outlet/>
             </section>
         </main>

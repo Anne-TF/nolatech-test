@@ -2,7 +2,6 @@ import {EmployeesTable} from '@modules/Employees/presentation/componets/Employee
 import {Button} from '@common/components';
 
 export function List() {
-
     return (
         <>
             <section className="px-4 md:px-8 pt-6 text-neutral-500 dark:!text-white flex flex-wrap justify-between items-start">
@@ -17,7 +16,7 @@ export function List() {
                 </div>
 
                 <Button
-                    customClassName="bg-app-primary-700 w-full md:w-auto hover:dark:!bg-orange-600 bg-slate-100 hover:bg-slate-200 rounded-lg p-3 text-bold"
+                    customClassName="bg-app-primary-700 w-full md:w-auto hover:dark:!bg-orange-600 text-slate-100 rounded-lg p-3 text-bold"
                     text="Add new employee"></Button>
             </section>
             <section className="px-4 md:px-8 pt-6">

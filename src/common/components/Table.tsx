@@ -12,7 +12,7 @@ interface Props {
 
 export const Table: React.FC<Props> = ({columns, tableClasses, includeActions, children, cards, gridClasses}) => {
     return (
-        <>
+        <div className="min-h-[450px]">
             <table
                 className={`w-full hidden xl:table text-sm text-left text-gray-500 rounded-xl dark:text-gray-400 ${tableClasses}`}>
                 <thead
@@ -37,6 +37,6 @@ export const Table: React.FC<Props> = ({columns, tableClasses, includeActions, c
             <div className={`w-full grid grid-cols-8 xl:hidden ${gridClasses}`}>
                 {cards}
             </div>
-        </>
+        </div>
     );
 };

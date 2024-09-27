@@ -32,17 +32,19 @@ const ListItem = ({
     }
 
     return (
-        <button
-            type="button"
-            className={`${customClassname} flex items-center gap-3 ${isActive ? activeClassname : ''} `}
-            onClick={clickable ? customOnClick : () => {}}
-            role="button"
-        >
-            {iconPosition === 'left' && <GetIcon />}
-            {to && <Link to={to}>{text}</Link>}
-            {!to && <span>{text}</span>}
-            {iconPosition === 'right' && <GetIcon />}
-        </button>
+        <Link to={to}>
+            <button
+                type="button"
+                className={`${customClassname} flex items-center gap-3 ${isActive ? activeClassname : ''} `}
+                onClick={clickable ? customOnClick : () => {
+                }}
+                role="button">
+                {iconPosition === 'left' && <GetIcon/>}
+                {text}
+                {iconPosition === 'right' && <GetIcon/>}
+            </button>
+        </Link>
+
     )
 }
 
