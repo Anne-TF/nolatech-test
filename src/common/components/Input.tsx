@@ -30,7 +30,7 @@ const Input = ({
    placeholder,
    required,
    showError = false,
-   errorMessage = '',
+   errorMessage = 'error',
    value,
    className,
    ariaLabel,
@@ -71,6 +71,7 @@ const Input = ({
         <div className={`${containerClasses ?? ''} relative flex flex-col`}>
             {!noLabel && (
                 <label
+                    role="label"
                     htmlFor={name}
                     className="my-2 block text-inter-regular ls-1 capitalize text-app-secondary dark:!text-slate-300">
                     {label ? label : name}
@@ -105,22 +106,24 @@ const Input = ({
                             (showError && inputValue.length < 2) || highlightError
                         }
                     />
-                    { showIcon &&  icon }
+                    { showIcon && icon }
                 </div>
                 <div
                     className={`absolute animate-fade-in-down mt-2 flex items-center gap-1 ${showError && errorMessage ? 'block' : 'hidden'}`}
                     role="region"
                     aria-live="assertive"
                     aria-label={errorMessage}>
-                    <RiErrorWarningLine
-                        size={20}
-                        className="text-app-danger-900 dark:!text-app-danger"
-                    />
+                    {showError && (
+                        <RiErrorWarningLine
+                            size={20}
+                            className="text-app-danger-900 dark:!text-app-danger"
+                        />
+                    )}
                     <span
                         aria-hidden="true"
                         className="text-sm text-app-danger-900 font-medium dark:!text-app-danger">
                         {errorMessage}
-                        </span>
+                    </span>
                 </div>
             </div>
         </div>

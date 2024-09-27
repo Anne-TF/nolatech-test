@@ -27,6 +27,11 @@ json-server --watch db.json --port 3030
 npm run dev
 ```
 
+### 6. If you want to run the tests, use the following command
+```bash
+npm run test
+```
+
 ### One last thing! You must login with the following credentials:
 - **Email**: jfdoe@nolatech.com
 - **Password**: password
