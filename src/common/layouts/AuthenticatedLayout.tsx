@@ -11,12 +11,15 @@ import {
     RiUser2Line,
 } from '@remixicon/react';
 import {Button, ListItem, NotificationsButton, ThemeSwitch} from '@common/components';
+import {AuthContext} from '@modules/Auth/infrastructure/context/AuthContext.tsx';
 
 export function AuthenticatedLayout() {
+    const { isDarkMode, toggleDarkMode } = useContext(AppSettingsContext);
+    const { user, setUser } = useContext(AuthContext);
+    const location = useLocation();
+
     const [isMounted, setIsMounted] = useState(false);
     const [showSidebar, setShowSidebar] = useState(false);
-    const { isDarkMode, toggleDarkMode } = useContext(AppSettingsContext);
-    const location = useLocation();
     const [showLogout, setShowLogout] = useState(false);
 
     const links = [
@@ -77,6 +80,7 @@ export function AuthenticatedLayout() {
                         text="Logout"
                         icon={<RiLogoutBoxLine size={24} />}
                         to="/"
+                        customOnClick={() => setUser(null)}
                         customClassname="w-11/12 absolute bottom-4 truncate text-neutral-500 hover:bg-slate-200 hover:dark:bg-neutral-700 rounded-lg dark:!text-neutral-300 py-4 px-4 text-regular font-bold mb-3"
                         iconPosition="left"
                         activeClassname={`${isDarkMode && 'bg-app-primary-900 hover:!bg-orange-600 !text-app-secondary'} ${!isDarkMode && 'bg-app-primary-100 !text-app-secondary'} text-semi-bold`}
@@ -92,14 +96,14 @@ export function AuthenticatedLayout() {
                     <div className="hidden lg:block w-3/6 xl:w-3/5">
                         <h1 className="mb-3 dark:!text-neutral-300 text-neutral-600"
                             style={{fontSize: 'clamp(23px, 30px, 32px)'}}>
-                            Hello Jane
+                            Hello { user?.firstName ?? 'stranger' }
                         </h1>
                         Welcome to the 360° evaluation platform of Nolatech
                     </div>
 
                     <div className="gap-2 md:gap-4 flex items-start xl:items-center flex-row flex-wrap w-3/4 sm:w-2/4 md:w-auto">
                         <h1 className="w-full mb-1 dark:!text-neutral-300 text-neutral-600 text-xl block lg:hidden">
-                            Hello Jane
+                            Hello { user?.firstName ?? 'stranger' }
                         </h1>
                         <Button
                             icon={<RiMenu2Line size={24}/>}
@@ -123,14 +127,14 @@ export function AuthenticatedLayout() {
 
                     <div className="flex gap-3 items-start xl:items-center">
                         <p className="text-right text-semi-bold m-0">
-                            <span style={{fontSize: 'clamp(16px, 17px, 18px)'}}>Jane Freya Doe</span>
+                            <span style={{fontSize: 'clamp(16px, 17px, 18px)'}}>{ user?.firstName ?? 'stranger' } {user?.lastName ?? ''}</span>
                             <br/>
-                            <span className="text-regular text-neutral-500 dark:!text-neutral-400">Lead HR</span>
+                            <span className="text-regular text-neutral-500 dark:!text-neutral-400">{user?.position ?? ''}</span>
                         </p>
 
                         <img
-                            src="https://cdn2.stylecraze.com/wp-content/uploads/2020/09/Beautiful-Women-In-The-World.jpg.avif"
-                            alt="Jane_Doe"
+                            src={user?.img ?? ''}
+                            alt={`profile_picture_${user?.firstName}`}
                             height="auto"
                             width="auto"
                             className="rounded-full h-[3.3em]"

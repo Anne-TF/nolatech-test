@@ -14,10 +14,12 @@ import {AppSettingsContext} from '@context/AppSettingsContext.tsx';
 import {LoginUseCase} from '@modules/Auth/domain/useCases';
 import {Bounce, toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "@modules/Auth/infrastructure/context/AuthContext";
 
 export function Login() {
    const navigate = useNavigate();
    const { isDarkMode, toggleDarkMode } = useContext(AppSettingsContext);
+   const { setUser } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
@@ -43,6 +45,7 @@ export function Login() {
                 setLoading(false);
                 if (user.email === data.email && user.password === data.password)
                 {
+                    setUser(user);
                     navigate('/dashboard');
                     resolve();
                     return;
