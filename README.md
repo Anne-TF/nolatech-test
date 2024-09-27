@@ -26,3 +26,5 @@ npm run dev
 ```
 
 And that's all :)!
+
+Note: The main branch is the branch where I made all the features I could in the given time for the test. But I continued improving the project (just because I wanted to) in the development branch. If you want to see the latest version of the project, you can switch to the development branch.
