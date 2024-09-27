@@ -17,12 +17,14 @@ import { AppSettingsProvider } from '@context/AppSettingsContext.tsx';
 import { DashboardRoutes } from '@modules/Dashboard/presentation/routes';
 import { AuthRoutes} from '@modules/Auth/presentation/routes';
 import { EmployeesRoutes} from '@modules/Employees/presentation/routes';
+import { EvaluationFormsRoutes } from '@modules/EvaluationForms/presentation/routes';
 
 
 const router = createBrowserRouter([
     AuthRoutes,
     DashboardRoutes,
     EmployeesRoutes,
+    EvaluationFormsRoutes,
 ]);
 
 createRoot(document.getElementById('root')!).render(

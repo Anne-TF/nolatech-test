@@ -381,5 +381,276 @@
         }
       ]
     }
+  ],
+  "evaluation-forms": [
+    {
+        "id": 1,
+        "name": "360 degree form - 2024",
+        "type": "360 degree",
+        "questions": [
+          {
+            "id": 1,
+            "question": "How well does the employee work with others?",
+            "type": "rating"
+          },
+          {
+            "id": 2,
+            "question": "How well does the employee communicate with others?",
+            "type": "rating"
+          },
+          {
+            "id": 3,
+            "question": "How well does the employee perform their job duties?",
+            "type": "rating"
+          },
+          {
+            "id": 4,
+            "question": "How well does the employee meet deadlines?",
+            "type": "choice"
+          },
+          {
+            "id": 5,
+            "question": "How well does the employee work under pressure?",
+            "type": "choice"
+          },
+          {
+            "id": 6,
+            "question": "Have you ever had a problem with this employee? If so, please describe it further.",
+            "type": "text"
+          },
+          {
+              "id": 7,
+              "question": "What are the employee's strengths?",
+              "type": "text"
+          },
+          {
+              "id": 8,
+              "question": "What are the employee's weaknesses?",
+              "type": "text"
+          },
+          {
+              "id": 9,
+              "question": "What are the employee's areas for improvement?",
+              "type": "multiple"
+          }
+        ],
+        "status": "Active",
+        "dateCreated": "2024-01-01"
+    },
+    {
+        "id": 2,
+        "name": "Performance Review - 2024",
+        "type": "Performance Review",
+        "questions": [
+            {
+            "id": 1,
+            "question": "How well does the employee perform their job duties?",
+            "type": "rating"
+            },
+            {
+            "id": 2,
+            "question": "How well does the employee meet deadlines?",
+            "type": "choice"
+            },
+            {
+            "id": 3,
+            "question": "How well does the employee work under pressure?",
+            "type": "choice"
+            },
+            {
+            "id": 4,
+            "question": "Have you ever had a problem with this employee? If so, please describe it further.",
+            "type": "text"
+            },
+            {
+                "id": 5,
+                "question": "What are the employee's strengths?",
+                "type": "text"
+            },
+            {
+                "id": 6,
+                "question": "What are the employee's weaknesses?",
+                "type": "text"
+            },
+            {
+                "id": 7,
+                "question": "What are the employee's areas for improvement?",
+                "type": "multiple"
+            }
+        ],
+        "status": "Active",
+        "dateCreated": "2024-01-01"
+        },
+    {
+        "id": 3,
+      "name": "Self Evaluation - 2024",
+      "type": "Self Evaluation",
+      "questions": [
+        {
+          "id": 1,
+          "question": "How well do you perform your job duties?",
+          "type": "rating"
+        },
+        {
+          "id": 2,
+          "question": "How well do you meet deadlines?",
+          "type": "choice"
+        },
+        {
+          "id": 3,
+          "question": "How well do you work under pressure?",
+          "type": "choice"
+        },
+        {
+          "id": 4,
+          "question": "Have you ever had a problem with this employee? If so, please describe it further.",
+          "type": "text"
+        },
+        {
+          "id": 5,
+          "question": "What are your strengths?",
+          "type": "text"
+        },
+        {
+          "id": 6,
+          "question": "What are your weaknesses?",
+          "type": "text"
+        },
+        {
+          "id": 7,
+          "question": "What are your areas for improvement?",
+          "type": "multiple"
+        }
+      ],
+      "status": "Inactive",
+      "dateCreated": "2024-01-01"
+    },
+    {
+        "id": 4,
+        "name": "Peer Review - 2024",
+        "type": "Peer Review",
+        "questions": [
+            {
+            "id": 1,
+            "question": "How well does the employee perform their job duties?",
+            "type": "rating"
+            },
+            {
+            "id": 2,
+            "question": "How well does the employee meet deadlines?",
+            "type": "choice"
+            },
+            {
+            "id": 3,
+            "question": "How well does the employee work under pressure?",
+            "type": "choice"
+            },
+            {
+            "id": 4,
+            "question": "Have you ever had a problem with this employee? If so, please describe it further.",
+            "type": "text"
+            },
+            {
+            "id": 5,
+            "question": "What are the employee's strengths?",
+            "type": "text"
+            },
+            {
+            "id": 6,
+            "question": "What are the employee's weaknesses?",
+            "type": "text"
+            },
+            {
+            "id": 7,
+            "question": "What are the employee's areas for improvement?",
+            "type": "multiple"
+            }
+        ],
+        "status": "Active",
+        "dateCreated": "2024-01-01"
+        },
+    {
+      "id": 5,
+      "name": "Customer Satisfaction Survey - 2024",
+      "type": "Customer Satisfaction Survey",
+      "questions": [
+          {
+          "id": 1,
+          "question": "How satisfied are you with the customer service you received?",
+          "type": "rating"
+          },
+          {
+          "id": 2,
+          "question": "How satisfied are you with the product you purchased?",
+          "type": "rating"
+          },
+          {
+          "id": 3,
+          "question": "How likely are you to recommend our company to a friend or family member?",
+          "type": "choice"
+          },
+          {
+          "id": 4,
+          "question": "Have you ever had a problem with this employee? If so, please describe it further.",
+          "type": "text"
+          },
+          {
+          "id": 5,
+          "question": "What are the employee's strengths?",
+          "type": "text"
+          },
+          {
+          "id": 6,
+          "question": "What are the employee's weaknesses?",
+          "type": "text"
+          }
+        ],
+      "status": "Inactive",
+      "dateCreated": "2024-01-01"
+    },
+    {
+      "id": 6,
+      "name": "Audit - 2024",
+      "type": "Audit",
+      "questions": [
+          {
+          "id": 1,
+          "question": "How well does the employee perform their job duties?",
+          "type": "rating"
+          },
+          {
+          "id": 2,
+          "question": "How well does the employee meet deadlines?",
+          "type": "choice"
+          },
+          {
+          "id": 3,
+          "question": "How well does the employee work under pressure?",
+          "type": "choice"
+          },
+          {
+          "id": 4,
+          "question": "Have you ever had a problem with this employee? If so, please describe it further.",
+          "type": "text"
+          },
+          {
+          "id": 5,
+          "question": "What are the employee's strengths?",
+          "type": "text"
+          },
+          {
+          "id": 6,
+          "question": "What are the employee's weaknesses?",
+          "type": "text"
+          },
+          {
+          "id": 7,
+          "question": "What are the employee's areas for improvement?",
+          "type": "multiple"
+          }
+        ],
+      "status": "Active",
+      "dateCreated": "2024-01-01"
+    }
   ]
 }

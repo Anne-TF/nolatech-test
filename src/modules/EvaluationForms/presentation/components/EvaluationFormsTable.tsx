@@ -1,84 +1,73 @@
 import {useEffect, useState} from 'react';
-import {IEmployee, IOptionForSearch} from '@modules/Employees/infrastructure/interfaces';
-import {ListEmployeesUseCase} from '@modules/Employees/domain/useCases';
 import {Button, Input, Pagination, Spinner, Table} from '@common/components';
 import {IPagination, ITableColum} from '@common/interfaces';
-import {EmployeeItemForTable} from '@modules/Employees/presentation/componets/EmployeeItemForTable.tsx';
 import {RiSearch2Line} from '@remixicon/react';
-import {SearchOption} from '@modules/Employees/infrastructure/enums/search-option.enum.ts';
+import {IEvaluationForm, IOptionForSearch} from '@modules/EvaluationForms/infrastructure/interfaces';
+import {SearchOption} from '@modules/EvaluationForms/infrastructure/enums/search-option.enum.ts';
+import {ListEvaluationFormsUseCase} from '@modules/EvaluationForms/domain/useCases';
+import {
+    EvaluationFormItemForTable
+} from '@modules/EvaluationForms/presentation/components/EvaluationFormItemForTable.tsx';
 
-export const EmployeesTable = () => {
+export const EvaluationFormsTable = () => {
     const optionsForSearch: IOptionForSearch[] = [
         {
-            label: 'First name',
-            value: SearchOption.FIRSTNAME
+            label: 'Name',
+            value: SearchOption.NAME
         },
         {
-            label: 'Last name',
-            value: SearchOption.LASTNAME
+            label: 'Type',
+            value: SearchOption.TYPE
         },
-        {
-            label: 'Email',
-            value: SearchOption.EMAIL
-        },
-        {
-            label: 'Position',
-            value: SearchOption.POSITION
-        }
     ];
 
     const [loading, setLoading] = useState<boolean>(true);
     const [search, setSearch] = useState<string>('');
-    const [employees, setEmployees] = useState<IEmployee[]>([]);
+    const [results, setResults] = useState<IEvaluationForm[]>([]);
     const [pagination, setPagination] = useState<IPagination | null>(null);
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [searchBy, setSearchBy] = useState<SearchOption>(SearchOption.FIRSTNAME);
+    const [searchBy, setSearchBy] = useState<SearchOption>(SearchOption.NAME);
     const columns: ITableColum[] = [
         {
-            name: 'First name',
+            name: 'Name',
             sortable: false,
-            value: 'firstName'
+            value: 'name'
         },
         {
-            name: 'Last name',
+            name: 'Type',
             sortable: false,
-            value: 'lastName'
+            value: 'type'
         },
         {
-            name: 'Email',
+            name: 'Creation date',
             sortable: false,
-            value: 'email'
+            value: 'dateCreated'
         },
         {
-            name: 'Position',
+            name: 'Status',
             sortable: false,
-            value: 'position'
-        },
-        {
-            name: 'Date hired',
-            sortable: false,
-            value: 'dateHired'
+            value: 'status'
         }
     ]
 
-    const getEmployees = async (page: number) => {
+    const getEvaluationForms = async (page: number) => {
         setLoading(true);
         setTimeout(async () => {
-            const { data, ...pagination } = await ListEmployeesUseCase.handler(page, 8, search, [searchBy]);
+            const { data, ...pagination } = await ListEvaluationFormsUseCase.handler(page, 8, search, [searchBy]);
             setCurrentPage(page);
             setLoading(false);
-            setEmployees(data);
+            setResults(data);
             setPagination(pagination);
         }, 2000);
     }
 
     useEffect(() => {
         (async () => {
-            await getEmployees(currentPage);
+            await getEvaluationForms(currentPage);
         })();
 
         return () => {
-            setEmployees([]);
+            setResults([]);
         }
     }, []);
     return (
@@ -89,10 +78,10 @@ export const EmployeesTable = () => {
                         type="text"
                         name="search"
                         noLabel
-                        ariaLabel={`Search employees by ${searchBy}`}
+                        ariaLabel={`Search evaluation forms by ${searchBy}`}
                         placeholder="Search"
                         showIcon
-                        onKeyDown={() => getEmployees(1)}
+                        onKeyDown={() => getEvaluationForms(1)}
                         value={search}
                         onChange={(value) => setSearch(value)}
                         className="pl-4 pr-20 relative"
@@ -100,7 +89,7 @@ export const EmployeesTable = () => {
                             <button
                                 type="button"
                                 className="absolute top-0 h-full right-0"
-                                onClick={() => getEmployees(1)}>
+                                onClick={() => getEvaluationForms(1)}>
                                 <RiSearch2Line
                                     size={10}
                                     className="text-slate-100 bg-app-primary-700 px-3 py-2 h-full w-14 rounded-r-md hover:!bg-orange-600"
@@ -122,22 +111,22 @@ export const EmployeesTable = () => {
                     </div>
                 </div>
             </div>
-            {!loading && (
+            {(!loading && results.length > 0) && (
                 <Table
                     tableClasses="!rounded-b-lg bg-neutral-50 dark:!bg-neutral-900"
                     includeActions
                     gridClasses="gap-3"
                     cards={
-                        !loading && employees.map((employee) => {
+                        !loading && results.map((item) => {
                             return (
-                                <EmployeeItemForTable gridVersion={true} employee={employee} key={employee.id} />
+                                <EvaluationFormItemForTable gridVersion={true} form={item} key={item.id} />
                             )
                         })
                     }
                     columns={columns}>
-                    {!loading && employees.map((employee) => {
+                    {!loading && results.map((item) => {
                         return (
-                            <EmployeeItemForTable employee={employee} gridVersion={false} key={employee.id} />
+                            <EvaluationFormItemForTable form={item} gridVersion={false} key={item.id} />
                         )
                     })}
                 </Table>
@@ -152,8 +141,8 @@ export const EmployeesTable = () => {
                 </div>)
             }
 
-            {(search.length > 0 && employees.length < 1 && !loading) && (
-                <div className="flex flex-col justify-center dark:text-neutral-400 items-center h-[500px]">
+            {(search.length > 0 && results.length < 1 && !loading) && (
+                <div className="flex flex-col justify-center dark:text-neutral-400 items-center h-[550px]">
                     <h1 className="text-xl mb-4 lg:text-2xl text-center text-semi-bold">
                         Seems like we don't have <br /> a result for that!
                     </h1>
@@ -162,15 +151,15 @@ export const EmployeesTable = () => {
                     </p>
                 </div>)}
 
-            {(pagination && employees.length > 0) && (
+            {(pagination && results.length > 0) && (
                 <Pagination
                     pagination={pagination}
                     onPageChange={(nextPage) => {
-                        getEmployees(nextPage);
+                        getEvaluationForms(nextPage);
                     }}
                     currentPage={currentPage}
                     perPage={10}
-                    resultsInPage={employees.length}
+                    resultsInPage={results.length}
                 />
             )}
         </>
