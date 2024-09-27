@@ -2,7 +2,7 @@ import Chart from "react-apexcharts";
 
 export interface ISerie {
     name: string;
-    data: number[];
+    data: number[] | { x: string; y: number }[];
 }
 
 interface Props {

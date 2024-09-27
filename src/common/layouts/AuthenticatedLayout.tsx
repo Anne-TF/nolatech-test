@@ -5,7 +5,7 @@ import {useContext, useEffect, useState} from 'react';
 import {AppSettingsContext} from '@context/AppSettingsContext.tsx';
 import {
     RiArticleLine,
-    RiDashboardLine,
+    RiDashboardLine, RiLogoutBoxLine,
     RiMenu2Line,
     RiSearch2Line,
     RiUser2Line,
@@ -17,6 +17,7 @@ export function AuthenticatedLayout() {
     const [showSidebar, setShowSidebar] = useState(false);
     const { isDarkMode, toggleDarkMode } = useContext(AppSettingsContext);
     const location = useLocation();
+    const [showLogout, setShowLogout] = useState(false);
 
     const links = [
         {
@@ -39,13 +40,14 @@ export function AuthenticatedLayout() {
     useEffect(() => {
         setTimeout(() => {
             setIsMounted(true);
+            setTimeout(() => { setShowLogout(true) }, 300)
         }, 200)
         return () => setIsMounted(false);
     }, [])
 
     return (
-        <main className="flex min-h-[100vh] overflow-x-hidden max-w-full">
-            <aside className={`py-4 sidebar-navigation bg-slate-100 dark:!bg-app-accent px-3 ${isMounted && 'sidebar-navigation--animation'} ${showSidebar && '!fixed xl:!relative w-4/5 md:w-3/5 lg:w-auto !block xl:!flex h-full xl:h-auto z-40 animate-slide-in-left'}`}>
+        <main className="flex min-h-[100vh] md:h-[100vh] max-w-full">
+            <aside className={`py-4 sidebar-navigation bg-slate-100 dark:!bg-app-accent px-3 xl:!sticky top-0 ${isMounted && 'sidebar-navigation--animation'} ${showSidebar && '!fixed w-4/5 md:w-3/5 lg:w-auto xl:!flex h-full xl:h-full z-40 animate-slide-in-left'}`}>
                 <img
                     src={isDarkMode ? NolatechLogoWhite : NolatechLogoGray}
                     alt="nolatech_logo_white"
@@ -69,10 +71,22 @@ export function AuthenticatedLayout() {
                         />
                     )
                 })}
+
+                {showLogout && (
+                    <ListItem
+                        text="Logout"
+                        icon={<RiLogoutBoxLine size={24} />}
+                        to="/"
+                        customClassname="w-11/12 absolute bottom-4 truncate text-neutral-500 hover:bg-slate-200 hover:dark:bg-neutral-700 rounded-lg dark:!text-neutral-300 py-4 px-4 text-regular font-bold mb-3"
+                        iconPosition="left"
+                        activeClassname={`${isDarkMode && 'bg-app-primary-900 hover:!bg-orange-600 !text-app-secondary'} ${!isDarkMode && 'bg-app-primary-100 !text-app-secondary'} text-semi-bold`}
+                        clickable={true}
+                    />
+                )}
             </aside>
 
             <section
-                className={`w-full flex flex-col overflow-y-auto overflow-x-hidden flex-1 bg-neutral-200 dark:bg-app-secondary ${showSidebar && '!overflow-hidden'}`}>
+                className={`w-full h-full flex flex-col overflow-y-auto overflow-x-hidden flex-1 bg-neutral-200 dark:bg-app-secondary ${showSidebar && '!overflow-hidden'}`}>
                 <div
                     className="text-app-secondary dark:!text-white px-4 md:px-8 py-4 md:pt-10 text-regular flex justify-between w-full h-auto">
                     <div className="hidden lg:block w-3/6 xl:w-3/5">
@@ -124,7 +138,7 @@ export function AuthenticatedLayout() {
                     </div>
                 </div>
                 {showSidebar && <div className="fixed w-full h-full bg-app-secondary z-20 opacity-60 backdrop-blur-md overflow-hidden lg:hidden" onClick={() => setShowSidebar(!showSidebar)}/>}
-                <Outlet/>
+                <Outlet />
             </section>
         </main>
     );

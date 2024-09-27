@@ -21,7 +21,7 @@ export function List() {
                     text="Add new form" />
             </section>
 
-            <section className="px-4 md:px-8 pt-6">
+            <section className="px-4 md:px-8 pt-6 pb-8">
                 <div className="dark:!bg-app-accent min-h-[550px] bg-slate-100 p-4 rounded-lg relative">
                     <EvaluationFormsTable />
                 </div>

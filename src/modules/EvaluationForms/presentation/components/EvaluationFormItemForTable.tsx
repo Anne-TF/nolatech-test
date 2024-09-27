@@ -13,7 +13,7 @@ export const EvaluationFormItemForTable = ({ form, gridVersion }: Props) => {
 
     const GetStatusDot = (status: string) => {
         return (
-            <span className={`w-2 h-2 ml-2 inline-block rounded-full ${status === 'Active' ? 'bg-green-500' : 'bg-red-500'}`} />
+            <span className={`w-2 h-2 ml-1 inline-block rounded-full ${status === 'Active' ? 'bg-green-500' : 'bg-red-500'}`} />
         );
     }
 

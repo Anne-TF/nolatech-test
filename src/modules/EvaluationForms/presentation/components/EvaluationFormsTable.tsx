@@ -133,7 +133,7 @@ export const EvaluationFormsTable = () => {
             )}
 
             {loading && (
-                <div className="flex justify-center items-center h-[550px]">
+                <div className="flex justify-center items-center h-[500px]">
                     <Spinner
                         spinnerColor="#fff"
                         loaderColor="#e5e5e5"
@@ -142,7 +142,7 @@ export const EvaluationFormsTable = () => {
             }
 
             {(search.length > 0 && results.length < 1 && !loading) && (
-                <div className="flex flex-col justify-center dark:text-neutral-400 items-center h-[550px]">
+                <div className="flex flex-col justify-center dark:text-neutral-400 items-center h-[500px]">
                     <h1 className="text-xl mb-4 lg:text-2xl text-center text-semi-bold">
                         Seems like we don't have <br /> a result for that!
                     </h1>

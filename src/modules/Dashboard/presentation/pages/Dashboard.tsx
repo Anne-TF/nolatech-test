@@ -83,7 +83,7 @@ export function Dashboard() {
 
     return (
         <>
-            <section className="grid grid-cols-2 lg:grid-cols-4 gap-3 px-4 md:px-8 h- md:pt-3">
+            <section className="grid grid-cols-2 lg:grid-cols-4 gap-3 px-4 md:px-8 h-auto md:pt-3">
                 {upperCards.map((card, index) => {
                     return (
                         <div key={index} className="bg-slate-100 dark:bg-app-accent flex flex-col justify-between p-3 md:p-4 h-[8em] rounded-xl">
@@ -105,39 +105,39 @@ export function Dashboard() {
                 })}
             </section>
 
-            <section className="grid grid-cols-12 px-4 pt-6 md:px-8 md:pt-6 gap-3 pb-6">
+            <section className="grid grid-cols-12 px-4 pt-6 md:px-8 md:pt-6 gap-3 pb-6 h-full">
                 <div className="h-full col-span-12 xl:col-span-8 rounded-xl grid grid-cols-8 gap-3">
-                    <ChartCard
-                        title="People Evaluated Through The Years"
-                        chart={
-                            <div className="w-full md:w-10/12">
-                                <Suspense fallback={<Spinner loaderColor="#F9B58B" spinnerColor="white"/>}>
-                                    <Chart
-                                        categories={[2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]}
-                                        series={[
-                                            {
-                                                name: "People evaluated",
-                                                data: [30, 40, 45, 50, 49, 60, 70, 85],
-                                            },
-                                            {
-                                                name: "Employees",
-                                                data: [30, 45, 50, 50, 48, 55, 60, 100],
-                                            },
-                                        ]}
-                                        colors={['#2e90fa', '#D5590B']}
-                                        id="area-chart"
-                                        type="area"
-                                    />
-                                </Suspense>
-                            </div>}
-                        customClassname="col-span-12 md:col-span-5 lg:col-span-5"/>
+                <ChartCard
+                    title="People Evaluated Through The Years"
+                    chart={
+                        <div className="w-full md:w-11/12">
+                            <Suspense fallback={<Spinner loaderColor="#F9B58B" spinnerColor="white"/>}>
+                                <Chart
+                                    categories={[2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]}
+                                    series={[
+                                        {
+                                            name: "People evaluated",
+                                            data: [30, 40, 45, 50, 49, 60, 70, 85],
+                                        },
+                                        {
+                                            name: "Employees",
+                                            data: [30, 45, 50, 50, 48, 55, 60, 100],
+                                        },
+                                    ]}
+                                    colors={['#2e90fa', '#D5590B']}
+                                    id="area-chart"
+                                    type="area"
+                                />
+                            </Suspense>
+                        </div>}
+                    customClassname="col-span-12 md:col-span-5 lg:col-span-5"/>
 
-                <div className={`bg-slate-100 h-auto dark:bg-app-accent col-span-12 md:col-span-3 lg:col-span-3 rounded-xl flex flex-col items-center max-h-[27em]`}>
+                <div className={`bg-slate-100 pb-5 h-auto dark:bg-app-accent col-span-12 md:col-span-3 lg:col-span-3 rounded-xl flex flex-col items-center `}>
                     <h1 className="text-xl w-full px-3 md:px-6 py-5 text-app-secondary text-semi-bold dark:!text-neutral-300">
                         Most Recent Results
                     </h1>
 
-                    <div className="h-5/6 mb-5 w-full px-4 md:px-6 overflow-y-auto flex flex-col gap-5">
+                    <div className="max-h-[14em] md:max-h-[17em] lg:max-h-[22em] h-auto w-full px-4 md:px-6 overflow-y-auto flex flex-col gap-5">
                         {recentResults.map((result, index) => {
                             return <EmployeeItem key={index} employee={result} />
                         })}
@@ -147,7 +147,7 @@ export function Dashboard() {
                 <ChartCard
                     title="Employees Evaluation Status"
                     chart={
-                        <div className="w-full sm:w-8/12 md:w-10/12 xl:w-8/12 pb-6">
+                        <div className="w-full sm:w-8/12 md:w-10/12 pb-6">
                             <Suspense fallback={<Spinner loaderColor="#F9B58B" spinnerColor="white"/>}>
                                  <Chart
                                         categories={[2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]}
@@ -161,9 +161,77 @@ export function Dashboard() {
                             </div>}
                         customClassname="col-span-12 md:col-span-5 lg:col-span-4"/>
 
-                    <div className="bg-slate-100 h-full dark:bg-app-accent col-span-12 md:col-span-3 lg:col-span-4 rounded-xl">
-                        card
-                    </div>
+                    <ChartCard
+                        title="Employees Distribution"
+                        chart={
+                            <div className="w-5/6 col-span-12 md:col-span-3 lg:col-span-4 pb-6">
+                                <Suspense fallback={<Spinner loaderColor="#F9B58B" spinnerColor="white"/>}>
+                                    <Chart
+                                        categories={[]}
+                                        series={[
+                                            {
+                                                name: 'Administrative',
+                                                data: [
+                                                    {
+                                                        x: 'Managers',
+                                                        y: 10
+                                                    },
+                                                    {
+                                                        x: 'Supervisors',
+                                                        y: 30
+                                                    },
+                                                    {
+                                                        x: 'Consultants',
+                                                        y: 41
+                                                    },
+                                                    {
+                                                        x: 'Coordinators',
+                                                        y: 20
+                                                    },
+                                                    {
+                                                        x: 'Human Resources',
+                                                        y: 20
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                name: 'Engineering and Design',
+                                                data: [
+                                                    {
+                                                        x: 'Designers',
+                                                        y: 10
+                                                    },
+                                                    {
+                                                        x: 'RRSS',
+                                                        y: 20
+                                                    },
+                                                    {
+                                                        x: 'Software Developers',
+                                                        y: 51
+                                                    },
+                                                    {
+                                                        x: 'Software Engineers',
+                                                        y: 30
+                                                    },
+                                                    {
+                                                        x: 'UI/UX Designers',
+                                                        y: 20
+                                                    },
+                                                    {
+                                                        x: 'QA Engineers',
+                                                        y: 30
+                                                    }
+                                                ]
+                                            }
+                                        ]}
+                                        labels={[]}
+                                        colors={['#4CAF50', '#D5590B', '#F8C31F']}
+                                        id="area-chart"
+                                        type="treemap"
+                                    />
+                                </Suspense>
+                            </div>}
+                        customClassname="col-span-12 md:col-span-5 lg:col-span-4"/>
                 </div>
 
 
