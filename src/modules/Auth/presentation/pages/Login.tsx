@@ -5,12 +5,15 @@ import {Controller, SubmitHandler, useForm} from 'react-hook-form';
 import {ILoginForm} from '@modules/Auth/infrastructure/interfaces';
 import {useContext, useRef, useState} from 'react';
 import Input from '@common/components/Input.tsx';
-import {RiLockLine, RiLockUnlockLine, RiMailLine} from '@remixicon/react';
+import {RiErrorWarningLine, RiLockLine, RiLockUnlockLine, RiMailLine} from '@remixicon/react';
 import {Button, ThemeSwitch} from '@common/components';
 import {EmailPattern, messages} from '@common/utils';
 import {BarsAnimation} from '@modules/Auth/presentation/components/BarsAnimation.tsx';
 import {useNavigate} from 'react-router-dom';
 import {AppSettingsContext} from '@context/AppSettingsContext.tsx';
+import {LoginUseCase} from '@modules/Auth/domain/useCases';
+import {Bounce, toast, ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Login() {
    const navigate = useNavigate();
@@ -35,13 +38,32 @@ export function Login() {
         try
         {
             setLoading(true);
-            await new Promise((resolve) => setTimeout(resolve, 2000));
-            console.log(">>> Login data: ", data);
-            navigate('/dashboard');
+            await new Promise<void>((resolve, reject) => setTimeout(async() => {
+                const user = await LoginUseCase.handler(1);
+                setLoading(false);
+                if (user.email === data.email && user.password === data.password)
+                {
+                    navigate('/dashboard');
+                    resolve();
+                    return;
+                }
+                reject('Invalid credentials. Please check your email and password, and try again.');
+            }, 2000));
         }
-        catch (error)
+        catch (e: unknown)
         {
-            console.error(error);
+            toast.error(e as string, {
+                position: "top-right",
+                icon: <RiErrorWarningLine size={20} />,
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            });
         }
         finally
         {
@@ -128,13 +150,13 @@ export function Login() {
                                     {!showPassword &&
                                         <RiLockLine
                                             size={10}
-                                            className="text-app-secondary bg-app-primary dark:!text-app-accent px-3 dark:!bg-app-primary py-2 h-full w-14 rounded-r-md  absolute top-0 right-0"
+                                            className="hover:!bg-orange-500 bg-app-primary text-app-accent px-3 py-2 h-full w-14 rounded-r-md  absolute top-0 right-0"
                                         />
                                     }
                                     {showPassword &&
                                         <RiLockUnlockLine
                                             size={10}
-                                            className="text-app-secondary bg-app-primary dark:!text-app-accent px-3 dark:!bg-app-primary py-2 h-full w-14 rounded-r-md absolute top-0 right-0"
+                                            className="bg-app-primary text-app-accent px-3 hover:!bg-orange-500 py-2 h-full w-14 rounded-r-md absolute top-0 right-0"
                                         />}
                                 </button>
                             }
@@ -161,8 +183,22 @@ export function Login() {
                  className="w-4/6"
                  alt="draw_of_a_girl_with_a_phone_login_in_an_app" />
 
-            <ThemeSwitch className="absolute top-3 right-3 dark:!bg-app-accent" isDark={isDarkMode} toggleTheme={toggleDarkMode} />
+            <ThemeSwitch className="absolute top-3 right-3 bg-neutral-100 dark:!bg-app-accent dark:!text-slate-100" isDark={isDarkMode} toggleTheme={toggleDarkMode} />
         </div>
+
+        <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+            transition={Bounce}
+        />
     </section>
   )
 }

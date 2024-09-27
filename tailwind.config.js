@@ -15,6 +15,7 @@ export default {
         'app-tertiary': '#E8EDDF',
         'app-quaternary': '#CFDBD5',
         'app-accent': '#333533',
+        'app-danger': '#ff6464'
       },
       animation: {
         "fade-in-down": "fade-in-down .5s ease-out",

@@ -27,9 +27,15 @@ json-server --watch db.json --port 3030
 npm run dev
 ```
 
+### One last thing! You must login with the following credentials:
+- **Email**: jfdoe@nolatech.com
+- **Password**: password
+
+#### Any other email or password will result in an error notification.
+
 And that's all :)!
 
-Note: The main branch is the branch where I made all the features I could in the given time for the test. But I continued improving the project (just because I wanted to) in the development branch. If you want to see the latest version of the project, you can switch to the development branch.
+**Note**: The main branch is the branch where I made all the features I could in the given time for the test. But I continued improving the project (just because I wanted to) in the development branch. If you want to see the latest version of the project, you can switch to the **development branch.**
 
 # Project Structure
 

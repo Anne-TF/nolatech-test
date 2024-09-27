@@ -235,8 +235,8 @@ export function Dashboard() {
                 </div>
 
 
-                <div className="bg-slate-100 h-full dark:bg-app-accent col-span-12 lg:col-span-4 rounded-xl">
-                    card
+                <div className="bg-slate-100 text-center text-app-accent dark:!text-slate-200 h-full dark:bg-app-accent col-span-12 lg:col-span-4 rounded-xl">
+                    Calendar goes here
                 </div>
             </section>
         </>

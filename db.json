@@ -652,5 +652,15 @@
       "status": "Active",
       "dateCreated": "2024-01-01"
     }
+  ],
+  "users" : [
+    {
+      "id": 1,
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "jfdoe@nolatech.com",
+      "position": "Lead HR",
+      "password": "password"
+    }
   ]
 }

@@ -20,19 +20,19 @@ $app-tertiary: #E8EDDF;
 $app-quaternary: #CFDBD5;
 $app-accent: #333533;
 
-$app-danger: #F0B719;
+$app-danger: #e50000;
 $app-danger--tones: (
-    50: #FDF7E5,
-    100: #FCEEBD,
-    200: #FBE594,
-    300: #FADE6B,
+    50: #F9B5B5,
+    100: #F99E9E,
+    200: #F88888,
+    300: #F77171,
     400: $app-danger,
-    500: #F8C31F,
-    600: #F7B800,
-    700: #E3A000,
-    800: #C18A00,
-    900: #A07A00,
-    950: #7A5A00
+    500: #F54444,
+    600: #F42D2D,
+    700: #F31717,
+    800: #E50D0D,
+    900: #D50B0B,
+    950: #C50A0A
 );
 $app-info: #2e90fa;
 $app-warning: #FFCC00;
