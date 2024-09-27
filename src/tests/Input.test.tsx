@@ -30,6 +30,7 @@ describe('Input component', () => {
         expect(iconElements[0]).toBeInTheDocument();
         expect(iconElements[0].classList).toContain('remixicon');
         expect(iconElements[0]).toBeVisible();
+
     });
 
     it('Hides icon correctly', () => {
@@ -58,7 +59,6 @@ describe('Input component', () => {
         await userEvent.type(screen.getByRole('textbox'), 'This is a test');
         expect(spy).toHaveBeenCalledTimes(14);
         expect(value).toBe('This is a test');
-        screen.debug();
     })
 
     it('Disables input correctly', async() => {

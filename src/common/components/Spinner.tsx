@@ -9,7 +9,7 @@ export const Spinner = ({
     spinnerColor = '#FFF',
  }: Props) => {
     return (
-        <div className="relative w-4 py-3 mx-auto flex items-center justify-center">
+        <div id="loader" role="status" className="relative w-4 py-3 mx-auto flex items-center justify-center">
                     <span
                         style={{
                             border: `3px solid ${loaderColor}`,
